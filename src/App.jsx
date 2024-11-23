@@ -17,7 +17,7 @@ function App() {
   const [graduated, setGraduated] = useState(false);
   
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => { /* PARA QUE FUNCIONE EL EVENTO */
     e.preventDefault();
     const newStudent = {
       fullName,
@@ -29,6 +29,15 @@ function App() {
       graduated, 
     };
     setStudents([...students, newStudent]);
+
+    /*PARA LIMPIAR EL FORMULARIO */
+    setFullName("");
+    setImage("");
+    setPhone("");
+    setEmail("");
+    setProgram("-- None --");
+    setGraduationYear(2023);
+    setGraduated(false);
   };
 
   return (
@@ -36,7 +45,7 @@ function App() {
       <Navbar />
 
       {/* FORM */}
-      <form>
+      <form onSubmit={handleSubmit}> {/*SIN ESTO NO ENVÍA LA INFORMACIÓN */}
         <span>Add a Student</span>
         <div>
           <label>
@@ -93,7 +102,7 @@ function App() {
 
           <label>
             Graduated
-            <input name="graduated" type="checkbox" value={graduated} 
+            <input name="graduated" type="checkbox" checked={graduated} /*NO FUNCIONA "VALUE" CON LOS CHECKBOX*/
               onChange={(e) => setGraduated(e.target.value)}/>
           </label>
 
