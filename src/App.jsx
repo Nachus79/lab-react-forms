@@ -103,7 +103,7 @@ function App() {
           <label>
             Graduated
             <input name="graduated" type="checkbox" checked={graduated} /*NO FUNCIONA "VALUE" CON LOS CHECKBOX*/
-              onChange={(e) => setGraduated(e.target.value)}/>
+              onChange={(e) => setGraduated(e.target.checked)}/>
           </label>
 
           <button type="submit">Add Student</button>
