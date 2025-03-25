@@ -96,7 +96,7 @@ function App() {
               min={2023}
               max={2030}
               value={graduationYear} 
-              onChange={(e) => setGraduationYear(e.target.value)}
+              onChange={(e) => setGraduationYear(Number(e.target.value))}
             />
           </label>
 
